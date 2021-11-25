@@ -6,21 +6,13 @@ namespace MoreVariablesAndPrinting
     {
         static void Main(string[] args)
         {
-            string name;
-            string eyes;
-            string teeth;
-            string hair;
-            int age;
-            double height;
-            double weight;
-
-            name = "Zed A. Shaw";
-            age = 35;
-            height = 74 * 2.54;
-            weight = Math.Round(180 * 0.453592, 2);
-            eyes = "Blue";
-            teeth = "White";
-            hair = "Brown";
+            string name = "Zed A. Shaw";
+            int age = 35;
+            double height = 74 * 2.54;
+            double weight = Math.Round(180 * 0.453592, 2);
+            string eyes = "Blue";
+            string teeth = "White";
+            string hair = "Brown";
 
             Console.WriteLine("Let's talk about " + name + ".");
             Console.WriteLine("He's " + height + " inches tall.");
