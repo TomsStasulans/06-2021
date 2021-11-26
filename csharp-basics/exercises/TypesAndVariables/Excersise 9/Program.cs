@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Excersise_9
 {
@@ -28,15 +24,3 @@ namespace Excersise_9
         }
     }
 }
-/*
-Test Data
-Input distance in meters: 2500 
-Input hour: 5 
-Input minutes: 56
-Input seconds: 23
-Expected Output :
-Your speed in meters/second is 0.11691531 
-Your speed in km/h is 0.42089513 
-Your speed in miles/h is 0.26158804
-
- */
