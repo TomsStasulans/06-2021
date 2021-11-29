@@ -12,10 +12,12 @@ namespace Exercise_2
             if(number % 2 == 0)
             {
                 Console.WriteLine("Even Number");
-            } else
+            }
+            else
             {
                 Console.WriteLine("Odd Number");
             }
+
             Console.WriteLine("bye!");
             Console.ReadLine();
         }
