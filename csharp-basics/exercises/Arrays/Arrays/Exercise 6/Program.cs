@@ -11,8 +11,8 @@ namespace Exercise_6
 
             for (int i = 0; i < numberArray1.Length; i++)
             {
-                int randomnumber = random.Next(1, 101);
-                numberArray1[i] = randomnumber;
+                int randomNumber = random.Next(1, 101);
+                numberArray1[i] = randomNumber;
             }
 
             int[] numberArray2 = new int[10];
