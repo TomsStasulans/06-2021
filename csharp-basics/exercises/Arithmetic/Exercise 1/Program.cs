@@ -14,10 +14,12 @@ namespace Exercise_1
             if (firstInt == 15 || secondInt == 15)
             {
                 Console.WriteLine("true");
-            } else if (firstInt - secondInt == 15 || firstInt + secondInt == 15)
+            }
+            else if (firstInt - secondInt == 15 || firstInt + secondInt == 15)
             {
                 Console.WriteLine("true");
-            } else
+            }
+            else
             {
                 Console.WriteLine("false");
             }
