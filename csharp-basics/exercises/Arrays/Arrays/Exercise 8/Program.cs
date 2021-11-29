@@ -20,7 +20,7 @@ namespace Exercise_8
             while (guessable.IndexOf('_') != -1)
             {
                 Console.WriteLine($"word: {guessable}");
-                Console.WriteLine($"misess:");
+                Console.WriteLine($"misess: {misses}");
                 var input = Console.ReadKey();
                 var guess = input.KeyChar;
                 Console.WriteLine(guess);

@@ -95,6 +95,7 @@ namespace Exercise_7
                     Console.Write(chars[k, j]);
                 }
 
+                Console.WriteLine("    --+-+--");
                 Console.WriteLine();
             }
         }
