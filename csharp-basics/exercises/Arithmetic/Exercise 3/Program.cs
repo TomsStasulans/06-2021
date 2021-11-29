@@ -13,7 +13,7 @@ namespace SumAverageRunningInt
             for (var number = lowerBound; number <= upperBound; ++number)
             {
                 sum += number;
-            }
+            } 
 
             double avarage = sum / upperBound;
             Console.WriteLine("The sum of 1 to 100 is {0}", sum);
