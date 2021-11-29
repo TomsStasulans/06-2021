@@ -10,32 +10,9 @@ namespace Exercise_8
             double employee2 = TotalPay(8.2, 47);
             double employee3 = TotalPay(10, 73);
 
-            if (employee1 > 0)
-            {
-                Console.WriteLine(employee1);
-            }
-            else
-            {
-                Console.WriteLine("ERROR");
-            }
-
-            if (employee2 > 0)
-            {
-                Console.WriteLine(employee2);
-            }
-            else
-            {
-                Console.WriteLine("ERROR");
-            }
-
-            if (employee3 > 0)
-            {
-                Console.WriteLine(employee3);
-            }
-            else
-            {
-                Console.WriteLine("ERROR");
-            }
+            CorrectTotalPay(employee1);
+            CorrectTotalPay(employee2);
+            CorrectTotalPay(employee3);
 
             Console.ReadKey();
         }
@@ -57,6 +34,18 @@ namespace Exercise_8
             else
             {
                 return 0;
+            }
+        }
+
+        public static void CorrectTotalPay(double employee)
+        {
+            if (employee > 0)
+            {
+                Console.WriteLine(employee);
+            }
+            else
+            {
+                Console.WriteLine("Error");
             }
         }
     }
