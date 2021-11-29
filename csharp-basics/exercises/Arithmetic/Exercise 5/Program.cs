@@ -6,8 +6,8 @@ namespace Exercise_5
     {
         static void Main(string[] args)
         {
-            Random rand = new Random();
-            int randomNumber = rand.Next(1, 101);
+            Random number = new Random();
+            int randomNumber = number.Next(1, 101);
             Console.WriteLine("I'm thinking of a number between 1-100.  Try to guess it!");
             int guesedNumber = int.Parse(Console.ReadLine());
 
@@ -23,6 +23,7 @@ namespace Exercise_5
             {
                 Console.WriteLine("You guessed it!  What are the odds ?!?");
             }
+
             Console.ReadKey();
         }
     }
