@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculateArea
 {
@@ -10,17 +6,18 @@ namespace CalculateArea
     {
         public static double AreaOfCircle(decimal radius)
         {
-            throw new NotImplementedException();
+            return Math.PI * (double)radius * 2;
         }
 
         public static double AreaOfRectangle(decimal length, decimal width)
         {
-            throw new NotImplementedException();
+            double area = (double)length * (double)width;
+            return area;
         }
 
         public static double AreaOfTriangle(decimal ground, decimal h)
         {
-            throw new NotImplementedException();
+            return (double)ground * (double)h * 0.5;
         }
     }
 }
