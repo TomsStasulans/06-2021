@@ -6,11 +6,7 @@ namespace Exercise_7
     {
         static void Main(string[] args)
         {
-            char[,] chars = new char[,] {
-                { '-', '-', '-' },
-                { '-', '-', '-' },
-                { '-', '-', '-' }
-            };
+            char[,] chars = MakeAnEmptyField();
 
             Console.WriteLine("Hello lets start the game!");
 
@@ -20,9 +16,22 @@ namespace Exercise_7
                 player = i % 2 != 0 ? 'X' : 'O';
 
                 Console.WriteLine($"\n{player}, choose your location (row, column):");
-                string input = Console.ReadLine();
-                int[] coordinatesArray = Array.ConvertAll(input.Split(' '), int.Parse);
-                chars[coordinatesArray[0], coordinatesArray[1]] = player;
+
+                
+                while(CountTakenFields(chars) != i)
+                {
+                    string input = Console.ReadLine();
+                    int[] coordinatesArray = Array.ConvertAll(input.Split(' '), int.Parse);
+
+                    if (chars[coordinatesArray[0], coordinatesArray[1]] == '-')
+                    {
+                        chars[coordinatesArray[0], coordinatesArray[1]] = player;
+                    }
+                    else
+                    {
+                        Console.WriteLine("This field is taken. Please try again.");
+                    }
+                }
 
                 ShowField(chars);
 
@@ -95,9 +104,35 @@ namespace Exercise_7
                     Console.Write(chars[k, j]);
                 }
 
-                Console.WriteLine("    --+-+--");
                 Console.WriteLine();
             }
+        }
+
+        public static int CountTakenFields(char[,] chars)
+        {
+            int counter = 0;
+
+            for (int e = 0; e < 3; e++)
+            {
+                for (int w = 0; w < 3; w++)
+                {
+                    if (chars[e, w] == 'X' || chars[e, w] == 'O')
+                    {
+                        counter++;
+                    }
+                }
+            }
+
+            return counter;
+        }
+
+        public static char[,] MakeAnEmptyField()
+        {
+            return new char[,] {
+                { '-', '-', '-' },
+                { '-', '-', '-' },
+                { '-', '-', '-' }
+            };
         }
     }
 }
