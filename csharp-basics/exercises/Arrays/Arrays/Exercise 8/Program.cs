@@ -10,24 +10,23 @@ namespace Exercise_8
     {
         static void Main(string[] args)
         {
-            string[] words = { "ola", "jaka", "maks", "lelle" };
-            var randomNumber = new Random();
-            var word = words[randomNumber.Next(0, words.Length)];
-
+            bool WantToPlay = true;
+            var word = ChooseRandomWord();
             var guessable = new string('_', word.Length);
             var misses = string.Empty;
+            var tries = 0;
 
             while (guessable.IndexOf('_') != -1)
             {
+                Console.WriteLine("You guesed: {0} {1}", tries, tries == 1 ? "time" : "times", tries);
                 Console.WriteLine($"word: {guessable}");
                 Console.WriteLine($"misess: {misses}");
                 var input = Console.ReadKey();
                 var guess = input.KeyChar;
-                Console.WriteLine(guess);
-                Console.WriteLine($"Guess: {guess}");
+                Console.WriteLine($"\nGuess: {guess}");
                 
 
-                if (word.IndexOf(guess) > -1)
+                if (IsLetterInWord(word, guess))
                 {
                     for (int i = 0; i < word.Length; i++)
                     {
@@ -44,8 +43,28 @@ namespace Exercise_8
                     misses += guess;
                 }
 
-                Console.ReadKey();
+                tries++;
+
+                if (misses.Length == 7)
+                {
+                    Console.WriteLine("You made 7 mistakes.It's too many. Try again?");
+                }
+
+
+                
             }
+        }
+
+        public static bool IsLetterInWord(string word, char guess)
+        {
+            return word.IndexOf(guess) != -1;
+        }
+
+        public static string ChooseRandomWord()
+        {
+            string[] words = { "ola", "jaka", "maks", "lelle" };
+            var randomNumber = new Random();
+            return words[randomNumber.Next(0, words.Length)];
         }
     }
 }
