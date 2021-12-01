@@ -8,7 +8,7 @@ namespace Exercise_7
         {
             char[,] chars = MakeAnEmptyField();
 
-            Console.WriteLine("Hello lets start the game!");
+            Console.WriteLine("Hello lets start the game!!");
 
             for (int i = 1; i <= 9; i++)
             {
