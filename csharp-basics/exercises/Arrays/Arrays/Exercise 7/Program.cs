@@ -50,42 +50,14 @@ namespace Exercise_7
         }
         public static bool DoWeHaveAWinner(char[,] chars)
         {
-            if (chars[0, 0] == chars[0, 1] && chars[0, 0] == chars[0, 2] && chars[0, 0] != '-')
-            {
-                return true;
-            }
-
-            if (chars[1, 0] == chars[1, 1] && chars[1, 0] == chars[1, 2] && chars[1, 0] != '-')
-            {
-                return true;
-            }
-
-            if (chars[2, 0] == chars[2, 1] && chars[2, 0] == chars[2, 2] && chars[2, 0] != '-')
-            {
-                return true;
-            }
-
-            if (chars[0, 0] == chars[1, 0] && chars[0, 0] == chars[2, 0] && chars[0, 0] != '-')
-            {
-                return true;
-            }
-
-            if (chars[0, 1] == chars[1, 1] && chars[0, 1] == chars[2, 1] && chars[0, 1] != '-')
-            {
-                return true;
-            }
-
-            if (chars[0, 2] == chars[1, 2] && chars[0, 2] == chars[2, 2] && chars[0, 2] != '-')
-            {
-                return true;
-            }
-
-            if (chars[0, 0] == chars[1, 1] && chars[0, 0] == chars[2, 2] && chars[0, 0] != '-')
-            {
-                return true;
-            }
-
-            if (chars[2, 0] == chars[1, 1] && chars[2, 0] == chars[0, 2] && chars[2, 0] != '-')
+            if ((chars[0, 0] == chars[0, 1] && chars[0, 0] == chars[0, 2] && chars[0, 0] != '-') ||
+               (chars[1, 0] == chars[1, 1] && chars[1, 0] == chars[1, 2] && chars[1, 0] != '-') ||
+               (chars[2, 0] == chars[2, 1] && chars[2, 0] == chars[2, 2] && chars[2, 0] != '-') ||
+               (chars[0, 0] == chars[1, 0] && chars[0, 0] == chars[2, 0] && chars[0, 0] != '-') ||
+               (chars[0, 1] == chars[1, 1] && chars[0, 1] == chars[2, 1] && chars[0, 1] != '-') ||
+               (chars[0, 2] == chars[1, 2] && chars[0, 2] == chars[2, 2] && chars[0, 2] != '-') ||
+               (chars[0, 0] == chars[1, 1] && chars[0, 0] == chars[2, 2] && chars[0, 0] != '-') ||
+               (chars[2, 0] == chars[1, 1] && chars[2, 0] == chars[0, 2] && chars[2, 0] != '-'))
             {
                 return true;
             }
