@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ecercise_3
 {
@@ -29,7 +25,6 @@ namespace Ecercise_3
             else
             {
                 return 70;
-                
             }
         }
 
@@ -44,8 +39,5 @@ namespace Ecercise_3
                 return 0;
             }
         }
-
-        
-
     }
 }
