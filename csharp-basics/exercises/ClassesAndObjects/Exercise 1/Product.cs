@@ -11,9 +11,9 @@ namespace Exercise_1
             _name = name;
         }
 
-        private double _priceAtStart { get; set; }
-        private int _amountAtStart { get; set; }
-        private string _name { get; }
+        private double _priceAtStart;
+        private int _amountAtStart;
+        private string _name;
 
         public void PrintProduct()
         {
