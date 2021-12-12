@@ -42,15 +42,7 @@ namespace VideoStore
 
         public Video FindVideo(string title)
         {
-            foreach (var item in _videoList)
-            {
-                if (item.Title == title)
-                {
-                    return item;
-                    break;
-                }
-            }
-
+            _videoList.Find(item => item.Title == title);
             return null;
         }
     }
