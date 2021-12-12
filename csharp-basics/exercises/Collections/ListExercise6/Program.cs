@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ListExercise6
 {
@@ -23,8 +20,10 @@ namespace ListExercise6
 
             //TODO: Remove the third element from the list.
 
+            colors.RemoveAt(2);
             Console.WriteLine("After removing third element from the list:");
             Console.WriteLine(string.Join(",", colors));
+            Console.ReadKey();
         }
     }
 }
