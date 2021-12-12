@@ -10,7 +10,7 @@ namespace Ecercise_3
             FuelGauge myTank = new FuelGauge(3);
             myTank.IncrementFuel();
 
-            while(myTank._liters != 0)
+            while(myTank.Liters != 0)
             {
                 myOdo.IncrementMileage();
 
