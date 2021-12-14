@@ -39,7 +39,7 @@ namespace Histogram
 
             foreach (var line in result)
             {
-                Console.WriteLine(line.Key + ": " + line.Value);
+                Console.WriteLine($"{line.Key,5}: {line.Value}");
             }
 
             Console.ReadKey();
