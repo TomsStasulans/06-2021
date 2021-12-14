@@ -4,23 +4,23 @@ namespace Ecercise_3
 {
     public class FuelGauge
     {
-        public double Liters { get; set; }
+        private double _liters { get; set; }
 
         public FuelGauge(double liters)
         {
-            Liters = liters;
+            _liters = liters;
         }
 
         public void ReportLiters()
         {
-            Console.WriteLine(Liters);
+            Console.WriteLine(_liters);
         }
 
         public double IncrementFuel()
         {
-            if (Liters < 70)
+            if (_liters < 70)
             {
-                return Liters++;
+                return _liters++;
             }
             else
             {
@@ -30,14 +30,19 @@ namespace Ecercise_3
 
         public double DecrementFuel()
         {
-            if (Liters > 0)
+            if (_liters > 0)
             {
-                return Liters--;
+                return _liters--;
             }
             else
             {
                 return 0;
             }
+        }
+
+        public double GetFuel()
+        {
+            return _liters;
         }
     }
 }
