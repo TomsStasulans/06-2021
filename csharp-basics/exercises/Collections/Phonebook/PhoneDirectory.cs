@@ -1,21 +1,23 @@
 using System;
+using System.Collections.Generic;
 
 namespace PhoneBook
 {
     public class PhoneDirectory
     {
-        private PhoneEntry[] _data;
+        private SortedDictionary<string, PhoneEntry> _data;
         private int _dataCount;
 
-        public PhoneDirectory() {
-            _data = new PhoneEntry[1];
-            _dataCount = 0;
+        public PhoneDirectory(string name, PhoneEntry number) {
+
+            _data.Add(name, number);
+            _dataCount++;
         }
 
         private int Find(string name) {
             for (var i = 0; i < _dataCount; i++) 
             {
-                if (_data[i].name.Equals(name)) 
+                if (_data.Keys.Equals(name)) 
                 {
                     return i;
                 }
@@ -26,15 +28,7 @@ namespace PhoneBook
 
         public string GetNumber(string name) 
         {
-            var position = Find(name);
-            if (position == -1) 
-            {
-                return null;
-            } 
-            else 
-            {
-                return _data[position].number;
-            }
+                return _data[name].number;
         }
 
         public void PutNumber(string name, string number) 
@@ -47,17 +41,12 @@ namespace PhoneBook
             var i = Find(name);
             if (i >= 0) 
             {
-                _data[i].number = number;
+                _data[name].number = number;
             }
             else 
             {
-                if (_dataCount == _data.Length) 
-                {
-                    Array.Resize(ref _data, (2 * _data.Length));
-                }
-
-                var newEntry = new PhoneEntry {name = name, number = number}; // Create a new pair.
-                _data[_dataCount] = newEntry;   // Add the new pair to the array.
+                var newEntry = new PhoneEntry {number = number };
+                _data.Add(name, newEntry);
                 _dataCount++;
             }
         }
