@@ -6,7 +6,7 @@ namespace FlightPlanner
 {
     class Program
     {
-        private const string Path = @"C:\Projects\06-2021\csharp-basics\exercises\Collections\FlightPlanner\flights.txt";
+        private const string Path = "../../flights.txt";
 
         private static void Main(string[] args)
         {
@@ -14,14 +14,12 @@ namespace FlightPlanner
             List<string> flightInfo = new List<string>();
             FlightsToList(readText, flightInfo);
             List<string> roundTrip = new List<string>();
-
             HashSet<string> allCities = new HashSet<string>();
             foreach (string flight in readText)
             {
                 string[] cities = SplitRoute(flight);
                 allCities.Add(cities[0]);
                 allCities.Add(cities[1]);
-
             }
 
             while (true)
