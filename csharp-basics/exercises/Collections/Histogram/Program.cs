@@ -7,7 +7,7 @@ namespace Histogram
 {
     class Program
     {
-        private const string Path = @"C:\Projects\06-2021\csharp-basics\exercises\Collections\Histogram\midtermscores.txt";
+        private const string Path = "../../midtermscores.txt";
 
         private static void Main(string[] args)
         {
