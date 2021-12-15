@@ -8,7 +8,7 @@ namespace WordCount
     {
         static void Main(string[] args)
         {
-            string textFromFile = @"C:\Projects\06-2021\csharp-basics\exercises\Collections\WordCount\lear.txt";
+            string textFromFile = "../../lear.txt";
             string text = System.IO.File.ReadAllText(textFromFile);
             var lineCount = File.ReadLines(textFromFile).Count();
             int wordCount = text.Split(' ').ToList().Count;
