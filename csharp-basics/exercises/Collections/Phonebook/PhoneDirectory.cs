@@ -36,7 +36,7 @@ namespace PhoneBook
         {
             if (name == null || number == null) 
             {
-                throw new Exception("name and number cannot be null");
+                throw new Exception("name and number canot be null");
             }
 
             var i = Find(name);
