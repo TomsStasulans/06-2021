@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FuelConsumptionCalculator
 {
@@ -17,18 +13,19 @@ namespace FuelConsumptionCalculator
 
             Car car = new Car(0);
             Car car1 = new Car(0);
-            for (int i = 0; i < 3; i++)
+
+            for (int i = 0; i < 2; i++)
             {
                 Console.Write("Enter first reading: ");
-                startKilometers = Convert.ToInt32(Console.ReadLine());    
+                startKilometers = int.Parse(Console.ReadLine());
                 Console.Write("Enter liters reading: ");
-                liters = Convert.ToInt32(Console.ReadLine());
+                liters = int.Parse(Console.ReadLine());
                 car.FillUp(startKilometers, liters);
                 
                 Console.Write("Enter first reading: ");
-                startKilometers = Convert.ToInt32(Console.ReadLine());    
+                startKilometers = int.Parse(Console.ReadLine());
                 Console.Write("Enter liters reading: ");
-                liters = Convert.ToInt32(Console.ReadLine());
+                liters = int.Parse(Console.ReadLine());
                 car1.FillUp(startKilometers, liters);
             }
 
