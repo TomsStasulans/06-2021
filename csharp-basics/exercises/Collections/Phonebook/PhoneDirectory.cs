@@ -8,7 +8,8 @@ namespace PhoneBook
         private SortedDictionary<string, PhoneEntry> _data;
         private int _dataCount;
 
-        public PhoneDirectory(string name, PhoneEntry number) {
+        public PhoneDirectory(string name, PhoneEntry number) 
+        {
 
             _data.Add(name, number);
             _dataCount++;
