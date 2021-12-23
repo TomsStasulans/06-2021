@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Firm
+﻿namespace Firm
 {
     class Program
     {
