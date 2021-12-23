@@ -4,12 +4,12 @@ namespace Exercise_6
 {
     internal class Tiger : Felime
     {
-        private new string livingRegion;
+        private new string _livingRegion;
 
         public Tiger(string animalType, string animalName, double animalWeight, int foodEaten, string livingRegion) 
             : base(animalType, animalName, animalWeight, foodEaten, livingRegion)
         {
-            this.livingRegion = livingRegion;
+            _livingRegion = livingRegion;
         }
         
         public override void EatFood(Food food, int amount)
@@ -30,8 +30,6 @@ namespace Exercise_6
             {
                 return true;
             }
-
-            return false;
         }
 
         public override void MakeSound()

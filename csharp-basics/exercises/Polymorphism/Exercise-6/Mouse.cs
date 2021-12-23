@@ -21,12 +21,7 @@ namespace Exercise_6
         }
         public override bool IsItTasty(Food typeOfFood)
         {
-            if (typeOfFood is Vegetable || typeOfFood is Meat)
-            {
-                return true;
-            }
-
-            return false;
+            return true;
         }
 
         public override string ToString()
