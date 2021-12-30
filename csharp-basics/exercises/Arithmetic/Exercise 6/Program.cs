@@ -23,13 +23,15 @@ namespace Exercise_6
                 {
                     str += "Woza";
                 }
-                 if(i % 3 != 0 && i % 5 != 0 && i % 7 != 0)
+                
+                if(i % 3 != 0 && i % 5 != 0 && i % 7 != 0)
                 {
                     str += i;
                 }
 
                 Console.WriteLine(str);
             }
+
             Console.ReadKey();
         }
     }
