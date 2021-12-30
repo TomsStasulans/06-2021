@@ -6,18 +6,17 @@ namespace CalculateArea
     {
         public static double AreaOfCircle(decimal radius)
         {
-            return Math.PI * (double)radius * 2;
+            return Math.PI * Math.Pow((double)radius, 2);
         }
 
         public static double AreaOfRectangle(decimal length, decimal width)
         {
-            double area = (double)length * (double)width;
-            return area;
+            return (double)(length * width);
         }
 
         public static double AreaOfTriangle(decimal ground, decimal h)
         {
-            return (double)ground * (double)h * 0.5;
+            return (double)(ground * h) * 0.5;
         }
     }
 }

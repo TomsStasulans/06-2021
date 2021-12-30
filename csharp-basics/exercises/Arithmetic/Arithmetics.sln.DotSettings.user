@@ -4,5 +4,7 @@
     &lt;TestId&gt;MSTest::B0B59993-6650-4216-AFA7-8DCB6F11B4CA::.NETFramework,Version=v4.7.2::GravityCalculator.Tests.GravityCalculatorTests.FallingTimeIsTenSeconds_CalculateFinalPosition_ShouldBe490comma5&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;MSTest::494A538B-8B4D-477E-85D7-FD08B3C8169A::.NETFramework,Version=v4.7.2::Exercise_8.Tests.UnitTest1.AddBasePayAndHoursWorked_TwoNumbers_ShouldReturn414comma1&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;MSTest::494A538B-8B4D-477E-85D7-FD08B3C8169A::.NETFramework,Version=v4.7.2::Exercise_8.Tests.UnitTest1.AddBasePayAndHoursWorked_TwoNumbers_ShouldFail&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::3BFE1671-3AFC-42E1-BB63-64A2321BF81A::.NETFramework,Version=v4.7.2::CalculateArea.Tests.GeometryTests.CircleArea_5_ShouldReturn78Point5&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::3BFE1671-3AFC-42E1-BB63-64A2321BF81A::.NETFramework,Version=v4.7.2::CalculateArea.Tests.GeometryTests.TriangleArea_5_10_ShouldReturn25&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
