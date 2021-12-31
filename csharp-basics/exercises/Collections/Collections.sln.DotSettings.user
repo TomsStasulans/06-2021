@@ -1,6 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=147ea21d_002D58f4_002D4c18_002D9935_002D9e93265b8d9b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetListOfCities_List_ShouldBeStringOfCities" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;MSTest::22ACF4C5-BE23-4085-B358-1908CAACD558::.NETFramework,Version=v4.7.2::FlightPlanner.Tests.FightPlannerTests.GetListOfCities_List_ShouldBeStringOfCities&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::55688BA5-296D-49B2-8931-6734B98A9842::.NETFramework,Version=v4.7.2::PhoneBook.Tests.PhoneDirectoryTests.PutNumber_Otto1234567_ShouldContainOttomars&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
