@@ -1,4 +1,6 @@
-﻿namespace DragRace
+﻿using System;
+
+namespace DragRace
 {
     public class Lada : ICar
     {
@@ -10,7 +12,14 @@
 
         public void SlowDown()
         {
-            _currentspeed -= 50;
+            if (_currentspeed > 0)
+            {
+                _currentspeed -= 50;
+            }
+            else
+            {
+                throw new Exception("You Are Already Stopped");
+            }
         }
 
         public void SpeedUp()
@@ -18,9 +27,9 @@
             _currentspeed += 50;
         }
 
-        public void StartEngine()
+        public string StartEngine()
         {
-            System.Console.WriteLine("--- rum rum rum ---");
+            return "--- rum rum rum ---";
         }
     }
 }
