@@ -2,39 +2,31 @@
 
 namespace Exercise_6
 {
-    internal class Tiger : Felime
+    public class Tiger : Felime
     {
-        private new string _livingRegion;
-
-        public Tiger(string animalType, string animalName, double animalWeight, int foodEaten, string livingRegion) 
+        public Tiger(string animalType, string animalName, double animalWeight, int foodEaten, string livingRegion)
             : base(animalType, animalName, animalWeight, foodEaten, livingRegion)
         {
-            _livingRegion = livingRegion;
         }
-        
+
         public override void EatFood(Food food, int amount)
         {
             if (food is Vegetable)
             {
-                Console.WriteLine("Tigers are not eating that type of food!");
+                throw new Exception("Tigers are not eating that type of food!");
             }
-            else
-            {
-                foodEaten += amount;
-            }
+
+            foodEaten += amount;
         }
 
         public override bool IsItTasty(Food typeOfFood)
         {
-            if (typeOfFood is Meat)
-            {
-                return true;
-            }
+            return typeOfFood is Meat;
         }
 
-        public override void MakeSound()
+        public override string MakeSound()
         {
-            Console.WriteLine("Roar");
+            return "Roar";
         }
 
         public override string ToString()

@@ -2,39 +2,32 @@
 
 namespace Exercise_6
 {
-    internal class Zebra : Mammal
+    public class Zebra : Mammal
     {
         public Zebra(string animalType, string animalName, double animalWeight, int foodEaten, string livingRegion)
             : base(animalType, animalName, animalWeight, foodEaten, livingRegion)
         {
-
         }
 
-        public override void MakeSound()
+        public override string MakeSound()
         {
-            Console.WriteLine("Krkr");
+            return "Krkr";
         }
 
         public override void EatFood(Food food, int amount)
         {
-            if (food is Vegetable)
+            if (food is Meat)
             {
-                foodEaten += amount;
+                throw new Exception("Zebras are not eating that type of food!");
+
             }
-            else
-            {
-                Console.WriteLine("Zebras are not eating that type of food!");
-            }
+
+            foodEaten += amount;
         }
 
         public override bool IsItTasty(Food typeOfFood)
         {
-            if (typeOfFood is Vegetable)
-            {
-                return true;
-            }
-
-            return false;
+            return typeOfFood is Vegetable;
         }
 
         public override string ToString()

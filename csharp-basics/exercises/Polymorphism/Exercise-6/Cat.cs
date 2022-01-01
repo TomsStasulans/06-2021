@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Exercise_6
+﻿namespace Exercise_6
 {
-    internal class Cat : Felime
+    public class Cat : Felime
     {
         private string _breed;
         public Cat(string animalType, string animalName, double animalWeight, int foodEaten, string livingRegion, string breed) 
@@ -16,19 +14,11 @@ namespace Exercise_6
             foodEaten += amount;
         }
 
-        public override bool IsItTasty(Food typeOfFood)
-        {
-            if (typeOfFood is Vegetable || typeOfFood is Meat)
-            {
-                return true;
-            }
+        public override bool IsItTasty(Food typeOfFood) => true;
 
-            return false;
-        }
-
-        public override void MakeSound()
+        public override string MakeSound()
         {
-            Console.WriteLine("Meow");
+            return "Meow";
         }
 
         public override string ToString()

@@ -7,5 +7,9 @@
         {
             Quantity = quantity;
         }
+
+        protected Food()
+        {
+        }
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Exercise_6
+﻿namespace Exercise_6
 {
-    internal class Mouse : Mammal
+    public class Mouse : Mammal
     {
         public Mouse(string animalType, string animalName, double animalWeight, int foodEaten, string livingRegion)
             : base(animalType, animalName, animalWeight, foodEaten, livingRegion)
@@ -10,19 +8,16 @@ namespace Exercise_6
 
         }
 
-        public override void MakeSound()
+        public override string MakeSound()
         {
-            Console.WriteLine("Pepee");
+            return "Pepee";
         }
 
         public override void EatFood(Food food, int amount)
         {
-            throw new NotImplementedException();
+            foodEaten += amount;
         }
-        public override bool IsItTasty(Food typeOfFood)
-        {
-            return true;
-        }
+        public override bool IsItTasty(Food typeOfFood) => true;
 
         public override string ToString()
         {
