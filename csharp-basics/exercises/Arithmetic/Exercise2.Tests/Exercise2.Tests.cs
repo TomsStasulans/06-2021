@@ -15,7 +15,7 @@ namespace Exercise2.Tests
         }
 
         [TestMethod]
-        public void CheckTheNumber_GiveOddNumber_ShouldFail()
+        public void CheckIfEven_GiveOddNumber_ShouldFail()
         {
             //Act
             bool result = _target.CheckIfEven();
@@ -24,7 +24,7 @@ namespace Exercise2.Tests
         }
 
         [TestMethod]
-        public void CheckTheNumber_GiveOddNumber_ShouldPass()
+        public void CheckIfOdd_GiveOddNumber_ShouldPass()
         {
             //Act
             bool result = _target.CheckIfOdd();

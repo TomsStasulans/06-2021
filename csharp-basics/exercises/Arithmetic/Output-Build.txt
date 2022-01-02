@@ -1,0 +1,6 @@
+﻿Build started...
+1>------ Build started: Project: Exercise6.Tests, Configuration: Debug Any CPU ------
+2>------ Build started: Project: GravityCalculator.Tests, Configuration: Debug Any CPU ------
+1>  Exercise6.Tests -> C:\Projects\06-2021\csharp-basics\exercises\Arithmetic\Exercise6.Tests\bin\Debug\Exercise6.Tests.dll
+2>  GravityCalculator.Tests -> C:\Projects\06-2021\csharp-basics\exercises\Arithmetic\GravityCalculator.Tests\bin\Debug\GravityCalculator.Tests.dll
+========== Build: 2 succeeded, 0 failed, 14 up-to-date, 0 skipped ==========

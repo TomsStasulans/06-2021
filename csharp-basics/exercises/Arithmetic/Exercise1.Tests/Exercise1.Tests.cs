@@ -9,7 +9,7 @@ namespace Exercise1.Tests
         private FifteenMagic _target;
 
         [TestMethod]
-        public void GetTwoNumbers_TwoNumbers_IfAnyIsFifteenShouldReturnTrue()
+        public void IsAnyNumberFifteen_TwoNumbers_IfAnyIsFifteenShouldReturnTrue()
         {
             //Arrange
             _target = new FifteenMagic(15, 16);
@@ -20,7 +20,7 @@ namespace Exercise1.Tests
         }
 
         [TestMethod]
-        public void GetTwoNumbers_TwoNumbers_IfSumOrDifferenceFifteenShouldReturnFalse()
+        public void IsSumOrDifferenceFifteen_TwoNumbers_IfSumOrDifferenceFifteenShouldReturnFalse()
         {
             //Arrange
             _target = new FifteenMagic(4, 16);
@@ -31,7 +31,7 @@ namespace Exercise1.Tests
         }
 
         [TestMethod]
-        public void GetTwoNumbers_TwoNumbers_IfSumOrDifferenceFifteenShouldReturnTrue()
+        public void IsSumOrDifferenceFifteen_TwoNumbers_IfSumOrDifferenceFifteenShouldReturnTrue()
         {
             //Arrange
             _target = new FifteenMagic(10, 5);

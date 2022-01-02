@@ -8,7 +8,7 @@ namespace Exercise_8.Tests
         private CalculateSalary _target;
 
         [TestMethod]
-        public void AddBasePayAndHoursWorked_TwoNumbers_ShouldReturn414comma1()
+        public void CalculateTotalPay_TwoNumbers_ShouldReturn414comma1()
         {
             //Arrange
             _target = new CalculateSalary(8.2, 47);
@@ -19,7 +19,7 @@ namespace Exercise_8.Tests
         }
 
         [TestMethod]
-        public void CheckBasePayAndHoursWorked_EmployeesSalary_ShouldFail()
+        public void CalculateTotalPay_TwoNumbers_ShouldThrowException()
         {
             //Arrange
             _target = new CalculateSalary(7.5, 35);

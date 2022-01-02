@@ -7,7 +7,7 @@ namespace CalculateArea.Tests
     public class GeometryTests
     {
         [TestMethod]
-        public void CircleArea_5_ShouldReturn78Point5()
+        public void AreaOfCircle_number5_ShouldReturn78Point5()
         {
             //Arrange
             var radius = 5;
@@ -19,7 +19,7 @@ namespace CalculateArea.Tests
         }
 
         [TestMethod]
-        public void RectangleArea_5_7_ShouldReturn35()
+        public void AreaOfRectangle_Number5And7_ShouldReturn35()
         {
             //Arrange
             var expected = 35;
@@ -32,7 +32,7 @@ namespace CalculateArea.Tests
         }
 
         [TestMethod]
-        public void TriangleArea_5_10_ShouldReturn25()
+        public void AreaOfTriangle_5_10_ShouldReturn25()
         {
             //Arrange
             var expected = 25;

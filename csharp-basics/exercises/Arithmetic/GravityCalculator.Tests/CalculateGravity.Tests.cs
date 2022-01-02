@@ -8,7 +8,7 @@ namespace GravityCalculator.Tests
         private CalculateGravity _target;
 
         [TestMethod]
-        public void FallingTimeIsTenSeconds_CalculateFinalPosition_ShouldBe490comma5()
+        public void CalculateFinalPositionWhenFallingTenSeconds_MethodeCall_ShouldBe490comma5()
         {
             //Arrange
             _target = new CalculateGravity();

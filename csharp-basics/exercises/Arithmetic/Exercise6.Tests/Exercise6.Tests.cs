@@ -9,7 +9,7 @@ namespace Exercise6.Tests
         private CozaLozaWoza _target;
 
         [TestMethod]
-        public void GetANumber_CheckNumber_IfModuleOfNumberIsZeroShouldReturnCoza()
+        public void ReturnCoza_Number12_IfModuleOfNumberIsZeroShouldReturnCoza()
         {
             //Arrange
             _target = new CozaLozaWoza( 12);
@@ -20,7 +20,7 @@ namespace Exercise6.Tests
         }
 
         [TestMethod]
-        public void GetANumber_CheckNumber_IfModuleOfNumberIsZeroShouldReturnLoza()
+        public void ReturnLoza_Number10_IfModuleOfNumberIsZeroShouldReturnLoza()
         {
             //Arrange
             _target = new CozaLozaWoza(10);
@@ -31,7 +31,7 @@ namespace Exercise6.Tests
         }
 
         [TestMethod]
-        public void GetANumber_CheckNumber_IfModuleOfNumberIsZeroShouldReturnWoza()
+        public void ReturnWoza_Number21_IfModuleOfNumberIsZeroShouldReturnWoza()
         {
             //Arrange
             _target = new CozaLozaWoza(21);
@@ -42,7 +42,7 @@ namespace Exercise6.Tests
         }
 
         [TestMethod]
-        public void GetANumber_CheckNumber_IfModuleOfNumberIsZeroShouldReturnNumber()
+        public void ReturnNumber_Number11_IfModuleOfNumberIsZeroShouldReturnNumber()
         {
             //Arrange
             _target = new CozaLozaWoza(11);
