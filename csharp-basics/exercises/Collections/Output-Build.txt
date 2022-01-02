@@ -1,0 +1,44 @@
+﻿Build started...
+1>------ Build started: Project: Exercise 9, Configuration: Debug Any CPU ------
+2>------ Build started: Project: Exercise 4, Configuration: Debug Any CPU ------
+3>------ Build started: Project: Exercise 3, Configuration: Debug Any CPU ------
+4>------ Build started: Project: ListExercise11, Configuration: Debug Any CPU ------
+2>  Exercise 4 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\Exercise 4\bin\Debug\Exercise 4.exe
+1>  Exercise 9 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\Exercise 9\bin\Debug\Exercise 9.exe
+5>------ Build started: Project: ListExercise10, Configuration: Debug Any CPU ------
+6>------ Build started: Project: ListExercise9, Configuration: Debug Any CPU ------
+6>  ListExercise9 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise9\bin\Debug\ListExercise9.exe
+7>------ Build started: Project: ListExercise8, Configuration: Debug Any CPU ------
+5>C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise10\Program.cs(22,35,22,41): warning CS1718: Comparison made to same variable; did you mean to compare something else?
+7>  ListExercise8 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise8\bin\Debug\ListExercise8.exe
+5>  ListExercise10 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise10\bin\Debug\ListExercise10.exe
+8>------ Build started: Project: ListExercise7, Configuration: Debug Any CPU ------
+9>------ Build started: Project: ListExercise6, Configuration: Debug Any CPU ------
+3>  Exercise 3 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\Exercise 3\bin\Debug\Exercise 3.exe
+4>  ListExercise11 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise11\bin\Debug\ListExercise11.exe
+10>------ Build started: Project: ListExercise5, Configuration: Debug Any CPU ------
+11>------ Build started: Project: ListExercise4, Configuration: Debug Any CPU ------
+9>  ListExercise6 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise6\bin\Debug\ListExercise6.exe
+11>  ListExercise4 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise4\bin\Debug\ListExercise4.exe
+12>------ Build started: Project: ListExercise3, Configuration: Debug Any CPU ------
+13>------ Build started: Project: ListExercise2, Configuration: Debug Any CPU ------
+10>  ListExercise5 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise5\bin\Debug\ListExercise5.exe
+8>  ListExercise7 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise7\bin\Debug\ListExercise7.exe
+14>------ Build started: Project: ListExercise1, Configuration: Debug Any CPU ------
+15>------ Build started: Project: WordCount.Tests, Configuration: Debug Any CPU ------
+12>  ListExercise3 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise3\bin\Debug\ListExercise3.exe
+16>------ Build started: Project: PhoneBook.Tests, Configuration: Debug Any CPU ------
+13>  ListExercise2 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise2\bin\Debug\ListExercise2.exe
+14>  ListExercise1 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\ListExercise1\bin\Debug\ListExercise1.exe
+17>------ Build started: Project: Histogram, Configuration: Debug Any CPU ------
+18>------ Build started: Project: FlightPlanner, Configuration: Debug Any CPU ------
+17>  Histogram -> C:\Projects\06-2021\csharp-basics\exercises\Collections\Histogram\bin\Debug\Histogram.exe
+19>------ Build started: Project: Exercise1, Configuration: Debug Any CPU ------
+18>C:\Projects\06-2021\csharp-basics\exercises\Collections\FlightPlanner\Program.cs(104,13,104,20): warning CS0162: Unreachable code detected
+18>  FlightPlanner -> C:\Projects\06-2021\csharp-basics\exercises\Collections\FlightPlanner\bin\Debug\FlightPlanner.exe
+20>------ Build started: Project: FlightPlanner.Tests, Configuration: Debug Any CPU ------
+19>  Exercise1 -> C:\Projects\06-2021\csharp-basics\exercises\Collections\Exercise1\bin\Debug\Exercise1.exe
+15>  WordCount.Tests -> C:\Projects\06-2021\csharp-basics\exercises\Collections\WordCount.Tests\bin\Debug\WordCount.Tests.dll
+16>  PhoneBook.Tests -> C:\Projects\06-2021\csharp-basics\exercises\Collections\PhoneBook.Tests\bin\Debug\PhoneBook.Tests.dll
+20>  FlightPlanner.Tests -> C:\Projects\06-2021\csharp-basics\exercises\Collections\FlightPlanner.Tests\bin\Debug\FlightPlanner.Tests.dll
+========== Build: 20 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========

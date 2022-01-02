@@ -15,7 +15,7 @@ namespace FlightPlanner.Tests
         }
 
         [TestMethod]
-        public void ListOfCities_List_ShouldBeStringOfCities()
+        public void DisplayCities_ListWithCities_ShouldBeStringOfCities()
         {
             //Arrange
             var cities = new List<string>();
@@ -32,7 +32,7 @@ namespace FlightPlanner.Tests
         }
 
         [TestMethod]
-        public void ArrayOfCities_Array_ShouldBeListOfCities()
+        public void FlightsToList_ArrayOfCities_ShouldBeListOfCities()
         {
             //Arrange
             string[] givenArray = {"Riga", "Liepaja", "Ogre"};
@@ -46,7 +46,7 @@ namespace FlightPlanner.Tests
         }
 
         [TestMethod]
-        public void StringOfCities_Array_ShouldBeTwoStrings()
+        public void SplitRoute_ArrayOfCities_ShouldBeTwoStrings()
         {
             //Arrange
             var givenString = "Riga -> Liepaja";
@@ -60,7 +60,7 @@ namespace FlightPlanner.Tests
         }
 
         [TestMethod]
-        public void StringOfCities_String_ShouldBeHashsetOfTwoStrings()
+        public void AddCitiesToHashset_String_ShouldBeHashsetOfTwoStrings()
         {
             //Arrange
             string[] givenString = { "Riga -> Liepaja" };

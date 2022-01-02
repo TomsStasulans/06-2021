@@ -14,30 +14,36 @@ namespace WordCount.Tests
         }
 
         [TestMethod]
-        public void GetLinesCount_TextFile_ShouldBe6()
+        public void GetLineCount_CallMethode_ShouldBe6()
         {
+            //Arrange
+            var expected = 6;
             //Act
             var linesCount = _target.GetLineCount();
             //Assert
-            Assert.AreEqual(6, linesCount);
+            Assert.AreEqual(expected, linesCount);
         }
 
         [TestMethod]
         public void GetWordsCount_TextFile_ShouldBe39()
         {
+            //Arrange
+            var expected = 39;
             //Act
             var wordsCount = _target.GetWordCount();
             //Assert
-            Assert.AreEqual(39, wordsCount);
+            Assert.AreEqual(expected, wordsCount);
         }
 
         [TestMethod]
         public void GetLines_TextFile_ShouldBe258()
         {
+            //Arrange
+            var expected = 258;
             //Act
             var charCount = _target.GetCharCount();
             //Assert
-            Assert.AreEqual(258, charCount);
+            Assert.AreEqual(expected, charCount);
         }
 
         [TestMethod]
