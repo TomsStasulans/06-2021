@@ -15,7 +15,7 @@ namespace Lada.Tests
         }
 
         [TestMethod]
-        public void ShowCurrentSpeed_50_ShouldBe10()
+        public void ShowCurrentSpeed_CallMethode_ShouldBe10()
         {
             //Arrange
             var expected = "50";
@@ -29,7 +29,7 @@ namespace Lada.Tests
         }
 
         [TestMethod]
-        public void StartEngine_String_ShouldBeStringRrrrrrr()
+        public void StartEngine_CallMethode_ShouldBeStringRrrrrrr()
         {
             //Arrange
             var expected = "--- rum rum rum ---";
@@ -42,7 +42,7 @@ namespace Lada.Tests
         }
 
         [TestMethod]
-        public void SpeedUp_50_ShouldBe5()
+        public void SpeedUp_CallMethode_ShouldBe5()
         {
             //Arrange
             var expected = "50";
@@ -55,7 +55,7 @@ namespace Lada.Tests
         }
 
         [TestMethod]
-        public void SlowDown_50_ShouldBe0()
+        public void SlowDown_CallMethode_ShouldBe0()
         {
             //Arrange
             var expected = "0";
@@ -69,7 +69,7 @@ namespace Lada.Tests
         }
 
         [TestMethod]
-        public void SlowDown_50_ShouldThrowExceptionYouAreAlreadyStopped()
+        public void SlowDown_CallMethode_ShouldThrowExceptionYouAreAlreadyStopped()
         {
             //Assert
             Assert.ThrowsException<Exception>(() => _target.SlowDown());

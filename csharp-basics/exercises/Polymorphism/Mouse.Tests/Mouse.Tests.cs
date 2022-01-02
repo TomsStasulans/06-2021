@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using Exercise_6;
 
 namespace Mouse.Tests
@@ -16,7 +15,7 @@ namespace Mouse.Tests
         }
 
         [TestMethod]
-        public void MakeSound_Pepee_ShouldBeStringPepee()
+        public void MakeSound_CallMethode_ShouldBeStringPepee()
         {
             //Arrange
             var expected = "Pepee";
@@ -43,7 +42,7 @@ namespace Mouse.Tests
         }
 
         [TestMethod]
-        public void IsItTasty_1Meat_ShouldBeTrue()
+        public void IsItTasty_Meat_ShouldBeTrue()
         {
             //Arrange
             Food food = new Meat();
@@ -55,11 +54,11 @@ namespace Mouse.Tests
         }
 
         [TestMethod]
-        public void ToString_1Meat_FoodEatenShouldBe1()
+        public void ToString_CallMethode_FoodEatenShouldBe1()
         {
             //Arrange
             var expected = "Mouse[Pele, 1, World, 0]";
-            Food food = new Meat();
+
             //Act
             var result = _target.ToString();
 

@@ -15,7 +15,7 @@ namespace Audi.Tests
         }
 
         [TestMethod]
-        public void ShowCurrentSpeed_10_ShouldBe10()
+        public void ShowCurrentSpeed_CallMethode_ShouldBe10()
         {
             //Arrange
             var expected = "10";
@@ -29,7 +29,7 @@ namespace Audi.Tests
         }
 
         [TestMethod]
-        public void StartEngine_String_ShouldBeStringRrrrrrr()
+        public void StartEngine_CallMethode_ShouldBeStringRrrrrrr()
         {
             //Arrange
             var expected = "Rrrrrrr.....";
@@ -42,7 +42,7 @@ namespace Audi.Tests
         }
 
         [TestMethod]
-        public void SpeedUp_10_ShouldBe5()
+        public void SpeedUp_CallMethode_ShouldBe5()
         {
             //Arrange
             var expected = "10";
@@ -55,7 +55,7 @@ namespace Audi.Tests
         }
 
         [TestMethod]
-        public void SlowDown_10_ShouldBe0()
+        public void SlowDown_CallMethode_ShouldBe0()
         {
             //Arrange
             var expected = "0";
@@ -69,7 +69,7 @@ namespace Audi.Tests
         }
 
         [TestMethod]
-        public void SlowDown_10_ShouldThrowExceptionYouAreAlreadyStopped()
+        public void SlowDown_CallMethode_ShouldThrowExceptionYouAreAlreadyStopped()
         {
             //Assert
             Assert.ThrowsException<Exception>(() => _target.SlowDown());

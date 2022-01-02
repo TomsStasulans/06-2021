@@ -15,7 +15,7 @@ namespace Volvo.Tests
         }
 
         [TestMethod]
-        public void ShowCurrentSpeed_5_ShouldBe10()
+        public void ShowCurrentSpeed_CallMethode_ShouldBe10()
         {
             //Arrange
             var expected = "5";
@@ -29,7 +29,7 @@ namespace Volvo.Tests
         }
 
         [TestMethod]
-        public void StartEngine_String_ShouldBeStringRumPumPum()
+        public void StartEngine_CallMethode_ShouldBeStringRumPumPum()
         {
             //Arrange
             var expected = "--- rum pum pum ---";
@@ -42,7 +42,7 @@ namespace Volvo.Tests
         }
 
         [TestMethod]
-        public void SpeedUp_5_ShouldBe5()
+        public void SpeedUp_CallMethode_ShouldBe5()
         {
             //Arrange
             var expected = "5";
@@ -55,7 +55,7 @@ namespace Volvo.Tests
         }
 
         [TestMethod]
-        public void SlowDown_5_ShouldBe0()
+        public void SlowDown_CallMethode_ShouldBe0()
         {
             //Arrange
             var expected = "0";
@@ -69,14 +69,14 @@ namespace Volvo.Tests
         }
 
         [TestMethod]
-        public void SlowDown_50_ShouldThrowExceptionYouAreAlreadyStopped()
+        public void SlowDown_CallMethode_ShouldThrowExceptionYouAreAlreadyStopped()
         {
             //Assert
             Assert.ThrowsException<Exception>(() => _target.SlowDown());
         }
 
         [TestMethod]
-        public void UseNitrousOxideEngine_5_ShouldBe5()
+        public void UseNitrousOxideEngine_CallMethode_ShouldBe5()
         {
             //Arrange
             var expected = "100";

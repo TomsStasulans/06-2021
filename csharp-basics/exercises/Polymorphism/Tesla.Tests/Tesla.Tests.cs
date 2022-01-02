@@ -15,7 +15,7 @@ namespace Tesla.Tests
         }
 
         [TestMethod]
-        public void ShowCurrentSpeed_15_ShouldBe10()
+        public void ShowCurrentSpeed_CallMethode_ShouldBe10()
         {
             //Arrange
             var expected = "15";
@@ -29,7 +29,7 @@ namespace Tesla.Tests
         }
 
         [TestMethod]
-        public void StartEngine_String_ShouldBeStringRumPumPum()
+        public void StartEngine_CallMethode_ShouldBeStringRumPumPum()
         {
             //Arrange
             var expected = "-- silence ---";
@@ -42,7 +42,7 @@ namespace Tesla.Tests
         }
 
         [TestMethod]
-        public void SpeedUp_15_ShouldBe5()
+        public void SpeedUp_CallMethode_ShouldBe5()
         {
             //Arrange
             var expected = "15";
@@ -55,7 +55,7 @@ namespace Tesla.Tests
         }
 
         [TestMethod]
-        public void SlowDown_15_ShouldBe0()
+        public void SlowDown_CallMethode_ShouldBe0()
         {
             //Arrange
             var expected = "0";
@@ -69,7 +69,7 @@ namespace Tesla.Tests
         }
 
         [TestMethod]
-        public void SlowDown_15_ShouldThrowExceptionYouAreAlreadyStopped()
+        public void SlowDown_CallMethode_ShouldThrowExceptionYouAreAlreadyStopped()
         {
             //Assert
             Assert.ThrowsException<Exception>(() => _target.SlowDown());

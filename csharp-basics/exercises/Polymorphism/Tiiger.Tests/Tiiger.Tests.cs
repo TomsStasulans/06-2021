@@ -16,7 +16,7 @@ namespace Tiger.Tests
         }
 
         [TestMethod]
-        public void MakeSound_Roar_ShouldBeStringRoar()
+        public void MakeSound_CallMethode_ShouldBeStringRoar()
         {
             //Arrange
             var expected = "Roar";
@@ -48,7 +48,7 @@ namespace Tiger.Tests
         }
 
         [TestMethod]
-        public void IsItTasty_1Meat_ShouldBeTrue()
+        public void IsItTasty_Meat_ShouldBeTrue()
         {
             //Arrange
             Food food = new Meat();
@@ -59,7 +59,7 @@ namespace Tiger.Tests
         }
 
         [TestMethod]
-        public void IsItTasty_1Vegetable_ShouldBeFalse()
+        public void IsItTasty_Vegetable_ShouldBeFalse()
         {
             //Arrange
             Food food = new Vegetable();
@@ -70,11 +70,10 @@ namespace Tiger.Tests
         }
 
         [TestMethod]
-        public void ToString_1Meat_FoodEatenShouldBe1()
+        public void ToString_CallMethode_FoodEatenShouldBe1()
         {
             //Arrange
             var expected = "Tiger[Tank, 100, Africa, 0]";
-            Food food = new Meat();
             //Act
             var result = _target.ToString();
             //Assert

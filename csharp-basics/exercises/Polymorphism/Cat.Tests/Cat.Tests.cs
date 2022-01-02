@@ -15,7 +15,7 @@ namespace Cat.Tests
         }
 
         [TestMethod]
-        public void MakeSound_Meow_ShouldBeStringMeow()
+        public void MakeSound_CallMethode_ShouldBeStringMeow()
         {
             //Arrange
             var expected = "Meow";
@@ -42,7 +42,7 @@ namespace Cat.Tests
         }
 
         [TestMethod]
-        public void IsItTasty_1Meat_ShouldBeTrue()
+        public void IsItTasty_Vegetable_ShouldBeTrue()
         {
             //Arrange
             Food food = new Vegetable();
@@ -54,11 +54,11 @@ namespace Cat.Tests
         }
 
         [TestMethod]
-        public void ToString_1Meat_FoodEatenShouldBe1()
+        public void ToString_CallMethode_FoodEatenShouldBe1()
         {
             //Arrange
             var expected = "Cat[Kakis, , 1, World, 0]";
-            Food food = new Meat();
+
             //Act
             var result = _target.ToString();
 
