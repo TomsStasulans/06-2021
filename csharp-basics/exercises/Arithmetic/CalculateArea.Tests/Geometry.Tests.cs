@@ -13,7 +13,7 @@ namespace CalculateArea.Tests
             var radius = 5;
             var expected = 78.5;
             //Act
-            var result = Math.Round(Geometry.AreaOfCircle(radius), 1);
+            var result = Geometry.AreaOfCircle(radius);
             //Assert
             Assert.AreEqual(expected, result);
         }
