@@ -23,8 +23,8 @@ namespace Exercise_1
             {
                 Console.WriteLine("false");
             }
-            
-            Console.ReadLine(); 
+
+            Console.ReadLine();
         }
     }
 }

@@ -2,6 +2,43 @@
 
 namespace Exercise_8
 {
+    public class CalculateSalary
+    {
+        private readonly double _basePay;
+        private readonly double _hoursWorked;
+
+        public CalculateSalary(double basePay, double hoursWorked)
+        {
+            _basePay = basePay;
+            _hoursWorked = hoursWorked;
+        }
+
+        public double CalculateTotalPay()
+        {
+            if (_hoursWorked <= 60 && _basePay > 8)
+            {
+                if (_hoursWorked <= 40)
+                {
+                    return _hoursWorked * _basePay;
+                }
+
+                return 40 * _basePay + (_hoursWorked - 40) * (_basePay * 1.5);
+            }
+
+            return 0;
+        }
+
+        public double CorrectTotalPay()
+        {
+            double employee = CalculateTotalPay();
+            if (employee > 0)
+            {
+                return employee;
+            }
+
+            throw new IncorrectTotalPayException();
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
@@ -25,16 +62,11 @@ namespace Exercise_8
                 {
                     return hoursWorked * basePay;
                 }
-                else
-                {
-                    return 40 * basePay + (hoursWorked - 40) * (basePay * 1.5);
-                }
 
+                return 40 * basePay + (hoursWorked - 40) * (basePay * 1.5);
             }
-            else
-            {
-                return 0;
-            }
+
+            return 0;
         }
 
         public static void CorrectTotalPay(double employee)

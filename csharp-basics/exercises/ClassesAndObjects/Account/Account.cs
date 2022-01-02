@@ -1,6 +1,8 @@
-﻿namespace Account
+﻿using System;
+
+namespace Account
 {
-    class Account
+    public class Account
     {
         private string _name;
         private double _money;
@@ -13,12 +15,24 @@
 
         public double Withdrawal(double i)
         {
-            return _money -= i;
+            if (i < _money)
+            {
+                return _money -= i;
+            }
+
+            throw new Exception("Not enough money");
         }
 
         public void Deposit(double i)
         {
-            _money += i;
+            if (i > 0)
+            {
+                _money += i;
+            }
+            else
+            {
+                throw new Exception("Enter number above 0");
+            }
         }
 
         public double Balance()
@@ -31,10 +45,6 @@
             return $"{_name}: {_money}";
         }
 
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
+        public string Name => _name;
     }
 }

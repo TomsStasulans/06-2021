@@ -2,18 +2,25 @@ using System;
 
 namespace DragRace
 {
-    public class Audi
+    public class Audi : ICar
     {
         private int currentSpeed = 0;
 
         public void SpeedUp() 
         {
-            currentSpeed;
+            currentSpeed += 10;
         }
 
         public void SlowDown() 
         {
-            currentSpeed;
+            if (currentSpeed > 0)
+            {
+                currentSpeed -= 10;
+            }
+            else
+            {
+                throw new Exception("You Are Already Stopped");
+            }
         }
 
         public string ShowCurrentSpeed() 
@@ -21,9 +28,9 @@ namespace DragRace
             return currentSpeed.ToString();
         }
 
-        public void StartEngine() 
+        public string StartEngine() 
         {
-            Console.WriteLine("Rrrrrrr.....");
+            return "Rrrrrrr.....";
         }
     }
 }
