@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,9 +29,18 @@ namespace Minesweeper.Core
         public int NumMines { get; set; }
         public Board Board { get; set; }
 
-        public void SetupDesign()
+        public void SetupDesign(int XLoc, int YLoc)
         {
-            //this.BackColor = SystemColors.ButtonFace;
+            this.BackColor = SystemColors.ButtonFace;
+            this.Location = new Point(XLoc * CellSize, YLoc * CellSize);
+            this.Size = new Size(CellSize, CellSize);
+            this.UseVisualStyleBackColor = false;
+            this.Font = new Font("Verdana", 15.75F, FontStyle.Bold);
+        }
+
+        public void SetupBombDesign(int XLoc, int YLoc)
+        {
+            this.BackColor = SystemColors.ButtonFace;
             this.Location = new Point(XLoc * CellSize, YLoc * CellSize);
             this.Size = new Size(CellSize, CellSize);
             this.UseVisualStyleBackColor = false;
@@ -39,19 +49,39 @@ namespace Minesweeper.Core
 
         public void OnFlag()
         {
+            CellType = CellType.Flagged;
+            Text = "?";
+        }
 
+        public void OffFlag()
+        {
+            CellType = CellType.Regular;
+            Text = "";
         }
 
         public void OnClick(bool recursiveCall = false)
         {
+            if (CellType == CellType.Flagged)
+                return;
 
+            CellState = CellState.Opened;
+            if (CellType == CellType.Mine)
+            {
+                Image = System.Drawing.Image.FromFile("c:\\miniMine.jpg");
+                MessageBox.Show("You Lost", "Error Title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+
+                Text = Board.MinesAroundCell.ToString();
+            }
         }
 
         /// <summary>
-        /// Return the colour code associated with the number of surrounding mines
+        /// Return the color code associated with the number of surrounding mines
         /// </summary>
         /// <returns></returns>
-        private Color GetCellColour()
+        private Color GetCellColor()
         {
             switch (this.NumMines)
             {

@@ -8,29 +8,28 @@ using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 namespace Minesweeper.Tests
 {
     [TestClass]
-    public class BoardTests
+    public class CellTests
     {
-        private Board _target;
-        private Minesweeper _minesweeper;
+        private Cell _target;
 
         [TestInitialize]
 
         public void Setup()
         {
-            _minesweeper = new Minesweeper();
-            _target = new Board(_minesweeper, 9, 9, 10);
+            _target = new Cell();
         }
-        
+
         [TestMethod]
-        public void SetupBoard_ShouldReturn9x9Board()
+        public void OnFlag_ShouldReturnFlaggedCell()
         {
             //Arrange
-            var expected = 81;
+            var expected = _target.CellType == CellType.Flagged;
+            _target.CellState = CellState.Closed;
+            _target.CellType = CellType.Regular;
             //Act
-            _target.SetupBoard();
-            var result = _target.Cells.Length;
+            _target.OnFlag();
             //Assert
-            Assert.AreEqual(expected, result);
+           // Assert.AreEqual(expected, );
         }
     }
 }
