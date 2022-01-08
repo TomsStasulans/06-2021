@@ -1,4 +1,6 @@
-﻿namespace DragRace
+﻿using System;
+
+namespace DragRace
 {
     public class Volvo : ICar, IBoostable
     {
@@ -10,7 +12,14 @@
 
         public void SlowDown()
         {
-            _currenSpeed -= 5;
+            if (_currenSpeed > 0)
+            {
+                _currenSpeed -= 5;
+            }
+            else
+            {
+                throw new Exception("You Are Already Stopped");
+            }
         }
 
         public void SpeedUp()
@@ -18,9 +27,9 @@
             _currenSpeed += 5;
         }
 
-        public void StartEngine()
+        public string StartEngine()
         {
-            System.Console.WriteLine("--- rum pum pum ---");
+            return "--- rum pum pum ---";
         }
 
         public void UseNitrousOxideEngine()

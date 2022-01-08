@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Exercise_1
+﻿namespace Exercise_1
 {
-    internal class Product
+    public class Product
     {
         public Product(double priceAtStart, int amountAtStart, string name)
         {
@@ -15,9 +13,9 @@ namespace Exercise_1
         private int _amountAtStart;
         private string _name;
 
-        public void PrintProduct()
+        public string PrintProduct()
         {
-            Console.WriteLine($"{_name}, {_priceAtStart}, {_amountAtStart} ");
+            return $"{_name}, {_priceAtStart}, {_amountAtStart}";
         }
     }
 }

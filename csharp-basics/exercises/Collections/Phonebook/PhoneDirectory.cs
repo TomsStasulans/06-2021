@@ -5,51 +5,43 @@ namespace PhoneBook
 {
     public class PhoneDirectory
     {
-        private SortedDictionary<string, PhoneEntry> _data;
-        private int _dataCount;
+        private readonly SortedDictionary<string, string> _data;
 
-        public PhoneDirectory(string name, PhoneEntry number) 
+        public PhoneDirectory()
         {
-
-            _data.Add(name, number);
-            _dataCount++;
+            _data = new SortedDictionary<string, string>();
         }
 
-        private int Find(string name) {
-            for (var i = 0; i < _dataCount; i++) 
+        public string GetNumber(string name)
+        {
+            if (!NameExists(name))
             {
-                if (_data.Keys.Equals(name)) 
-                {
-                    return i;
-                }
+                return null;
             }
 
-            return -1;
+            return _data[name];
         }
 
-        public string GetNumber(string name) 
+        public void PutNumber(string name, string number)
         {
-                return _data[name].number;
+            if (name == null || number == null)
+            {
+                throw new Exception("name and number cannot be null");
+            }
+
+            if (NameExists(name))
+            {
+                _data[name] = number;
+            }
+            else
+            {
+                _data.Add(name, number);
+            }
         }
 
-        public void PutNumber(string name, string number) 
+        private bool NameExists(string name)
         {
-            if (name == null || number == null) 
-            {
-                throw new Exception("name and number canot be null");
-            }
-
-            var i = Find(name);
-            if (i >= 0) 
-            {
-                _data[name].number = number;
-            }
-            else 
-            {
-                var newEntry = new PhoneEntry {number = number };
-                _data.Add(name, newEntry);
-                _dataCount++;
-            }
+            return _data.ContainsKey(name);
         }
     }
 }
