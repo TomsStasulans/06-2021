@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Minesweeper.Core
 {
     public class Board
     {
-        public int MinesAroundCell;
+        public int MinesAround;
         public Minesweeper Minesweeper { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
         public int NumMines { get; set; }
         public Cell[,] Cells { get; set; }
+        public int Clicks { get; set; }
 
         public Board(Minesweeper minesweeper, int width, int height, int mines)
         {
@@ -32,7 +30,6 @@ namespace Minesweeper.Core
             var cellCounter = 0;
             for (int i = 0; i < Width; i++)
             {
-
                 for (int j = 0; j < Height; j++)
                 {
                     if (bombs.Contains(cellCounter))
@@ -47,9 +44,6 @@ namespace Minesweeper.Core
                     cellCounter++;
                 }
             }
-
-            var cc = Cells;
-            
         }
 
         private void Cell_MouseClick(object sender, MouseEventArgs e)
@@ -62,14 +56,12 @@ namespace Minesweeper.Core
             switch (e.Button)
             {
                 case MouseButtons.Left:
-                    MinesAroundCell = MinesAround(Cells, cell);
-                    //Cells.GetValue(cell);
                     cell.OnClick();
-                    
+                    IfMineDisableClick(cell);
                     break;
 
                 case MouseButtons.Right:
-                    if (cell.CellType == CellType.Flagged)
+                    if (FlaggedOrFlaggedMine(cell))
                         cell.OffFlag();
                     else
                         cell.OnFlag();
@@ -82,11 +74,19 @@ namespace Minesweeper.Core
 
         public IList GetBombs(int NumMines)
         {
+            var bombsNeeded = NumMines;
             var bombs = new List<int>();
-            Random randomBomb = new Random();
-            for (int i = 0; i < NumMines; i++)
+            Random randomNumber = new Random();
+            for (int i = 0; i < bombsNeeded; i++)
             {
-                bombs.Add(randomBomb.Next(0, Width * Height));
+                var randomBomb = randomNumber.Next(0, Width * Height);
+                if (bombs.Contains(randomBomb))
+                {
+                    bombsNeeded++;
+                    continue;
+                }
+
+                bombs.Add(randomBomb);
             }
 
             return bombs;
@@ -96,25 +96,32 @@ namespace Minesweeper.Core
         {
             var c = new Cell
             {
+                XLoc = i,
+                YLoc = j,
                 CellState = CellState.Closed,
                 CellType = type,
                 CellSize = 50,
                 Board = this
             };
 
-            c.SetupDesign(i, j);
+            c.SetupDesign();
             c.MouseDown += Cell_MouseClick;
             this.Cells[i, j] = c;
             this.Minesweeper.Controls.Add(c);
         }
 
-        public int MinesAround(Cell[,] Cells, Cell cell)
+        private void IfMineDisableClick(Cell cell)
         {
-            int mine = 0;
-            // if (cell[i, j].CellType == CellType.Mine)
-                mine++;
+            if (cell.CellType == CellType.Mine)
+                foreach (var item in Cells)
+                {
+                    item.MouseDown -= Cell_MouseClick;
+                }
+        }
 
-            return mine;
+        public bool FlaggedOrFlaggedMine(Cell cell)
+        {
+            return cell.CellType == CellType.Flagged || cell.CellType == CellType.FlaggedMine;
         }
     }
 }

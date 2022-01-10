@@ -1,8 +1,5 @@
-﻿using System;
-using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Minesweeper.Core;
-using Xunit;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace Minesweeper.Tests
@@ -12,6 +9,7 @@ namespace Minesweeper.Tests
     {
         private Board _target;
         private Minesweeper _minesweeper;
+        private Cell _cell;
 
         [TestInitialize]
 
@@ -19,6 +17,8 @@ namespace Minesweeper.Tests
         {
             _minesweeper = new Minesweeper();
             _target = new Board(_minesweeper, 9, 9, 10);
+            _cell = new Cell();
+            _target.SetupCell(0, 0, CellType.Flagged);
         }
         
         [TestMethod]
@@ -31,6 +31,28 @@ namespace Minesweeper.Tests
             var result = _target.Cells.Length;
             //Assert
             Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void GetBombs_ShouldReturn10Bombs()
+        {
+            //Arrange
+            var expected = 10;
+            //Act
+            var result = _target.GetBombs(10).Count;
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void FlaggedOrFlaggedMine_Cell_ShouldBeTrue()
+        {
+            //Arrange
+            var cell = _target.Cells[0, 0];
+            //Act
+            var res = _target.FlaggedOrFlaggedMine(cell);
+            //Assert
+            Assert.IsTrue(res);
         }
     }
 }

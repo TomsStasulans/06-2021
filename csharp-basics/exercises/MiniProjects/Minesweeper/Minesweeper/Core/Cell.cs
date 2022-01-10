@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Minesweeper.Core
@@ -28,17 +23,9 @@ namespace Minesweeper.Core
         public CellType CellType { get; set; }
         public int NumMines { get; set; }
         public Board Board { get; set; }
+        public int mines { get; set; }
 
-        public void SetupDesign(int XLoc, int YLoc)
-        {
-            this.BackColor = SystemColors.ButtonFace;
-            this.Location = new Point(XLoc * CellSize, YLoc * CellSize);
-            this.Size = new Size(CellSize, CellSize);
-            this.UseVisualStyleBackColor = false;
-            this.Font = new Font("Verdana", 15.75F, FontStyle.Bold);
-        }
-
-        public void SetupBombDesign(int XLoc, int YLoc)
+        public void SetupDesign()
         {
             this.BackColor = SystemColors.ButtonFace;
             this.Location = new Point(XLoc * CellSize, YLoc * CellSize);
@@ -49,41 +36,73 @@ namespace Minesweeper.Core
 
         public void OnFlag()
         {
-            CellType = CellType.Flagged;
+            if (CellType == CellType.Mine)
+            {
+                CellType = CellType.FlaggedMine;
+            }
+            else
+            {
+                CellType = CellType.Flagged;
+            }
+
             Text = "?";
         }
 
         public void OffFlag()
         {
-            CellType = CellType.Regular;
+            if (CellType == CellType.FlaggedMine)
+            {
+                CellType = CellType.Mine;
+            }
+            else
+            {
+                CellType = CellType.Regular;
+            }
+
             Text = "";
         }
 
         public void OnClick(bool recursiveCall = false)
         {
-            if (CellType == CellType.Flagged)
+            Board.Clicks++;
+
+            if (Board.Clicks == 1 && CellType == CellType.Mine)
+            {
+                CellType = CellType.Regular;
+                GetRandomRegularCell().CellType = CellType.Mine;
+            }
+
+            if (CellType == CellType.Flagged || CellType == CellType.FlaggedMine)
                 return;
 
             CellState = CellState.Opened;
+
             if (CellType == CellType.Mine)
             {
-                Image = System.Drawing.Image.FromFile("c:\\miniMine.jpg");
-                MessageBox.Show("You Lost", "Error Title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                RevealMines();
+                LooserMessage();
             }
             else
             {
+                Text = MinesAroundCell().ToString();
+                ForeColor = GetCellColor();
 
-                Text = Board.MinesAroundCell.ToString();
+                if (MinesAroundCell() == 0)
+                {
+                    OpenCellsAround();
+                }
+            }
+
+            if (OpenedCells() == CellsWithNoMines())
+            {
+                RevealMines();
+                WinnerMessage();
             }
         }
 
-        /// <summary>
-        /// Return the color code associated with the number of surrounding mines
-        /// </summary>
-        /// <returns></returns>
         private Color GetCellColor()
         {
-            switch (this.NumMines)
+            switch (this.mines)
             {
                 case 1:
                     return ColorTranslator.FromHtml("0x0000FE"); // 1
@@ -104,6 +123,128 @@ namespace Minesweeper.Core
                 default:
                     return ColorTranslator.FromHtml("0xffffff");
             }
+        }
+
+        private int MinesAroundCell()
+        {
+            mines = 0;
+            int x = XLoc;
+            int y = YLoc;
+
+            for (int i = -1; i <= 1; i++)
+            {
+                for (int j = -1; j <= 1; j++)
+                {
+                    int xAxe = x + i;
+                    int yAxe = y + j;
+
+                    if (IsOutside(xAxe, yAxe))
+                        continue;
+
+                    if (IsMine(xAxe, yAxe))
+                        mines++;
+                }
+            }
+
+            return mines;
+        }
+
+        private void OpenCellsAround()
+        {
+            int x = XLoc;
+            int y = YLoc;
+
+            for (int i = -1; i <= 1; i++)
+            {
+                for (int j = -1; j <= 1; j++)
+                {
+                    int xAxe = x + i;
+                    int yAxe = y + j;
+
+                    if (IsOutside(xAxe, yAxe)
+                        || Board.Cells[xAxe, yAxe].CellState == CellState.Opened
+                        || Board.Cells[xAxe, yAxe].CellType == CellType.FlaggedMine
+                        || Board.Cells[xAxe, yAxe].CellType == CellType.Flagged)
+                        continue;
+
+                    Board.Cells[xAxe, yAxe].OnClick();
+                }
+            }
+        }
+
+        private void RevealMines()
+        {
+            foreach (var cell in Board.Cells)
+            {
+                if (cell.CellType == CellType.Mine || cell.CellType == CellType.FlaggedMine)
+                {
+                    cell.Image = System.Drawing.Image.FromFile("c:\\miniMine.jpg");
+                }
+            }
+        }
+
+        public bool IsOutside(int aroundX, int aroundY)
+        {
+            return aroundX < 0 || aroundY < 0 || aroundX >= Board.Width || aroundY >= Board.Height;
+        }
+
+        private bool IsMine(int xAxe, int yAxe)
+        {
+            return Board.Cells[xAxe, yAxe].CellType == CellType.Mine || Board.Cells[xAxe, yAxe].CellType == CellType.FlaggedMine;
+        }
+
+        private Cell GetRandomRegularCell()
+        {
+            Random randomCoordinate = new Random();
+            var x = randomCoordinate.Next(0, 9);
+            var y = randomCoordinate.Next(0, 9);
+
+            if (Board.Cells[x, y].CellType == CellType.Regular)
+            {
+                return Board.Cells[x, y];
+            }
+
+            return GetRandomRegularCell();
+        }
+
+        private void LooserMessage()
+        {
+            MessageBox.Show("You Loose!", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageDialoge();
+        }
+
+        private void WinnerMessage()
+        {
+            MessageBox.Show("You Win!", "Nice!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageDialoge();
+        }
+
+        private void MessageDialoge()
+        {
+            DialogResult dialogResult = MessageBox.Show(@"Restart?", @"Your options", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Restart();
+            }
+        }
+
+        private int OpenedCells()
+        {
+            var openedCells = 0;
+            foreach (var cell in Board.Cells)
+            {
+                if (cell.CellState == CellState.Opened)
+                {
+                    openedCells++;
+                }
+            }
+
+            return openedCells;
+        }
+
+        private int CellsWithNoMines()
+        {
+            return Board.Cells.Length - Board.NumMines;
         }
     }
 }
