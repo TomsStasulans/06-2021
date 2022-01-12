@@ -128,15 +128,13 @@ namespace Minesweeper.Core
         private int MinesAroundCell()
         {
             mines = 0;
-            int x = XLoc;
-            int y = YLoc;
 
             for (int i = -1; i <= 1; i++)
             {
                 for (int j = -1; j <= 1; j++)
                 {
-                    int xAxe = x + i;
-                    int yAxe = y + j;
+                    int xAxe = XLoc + i;
+                    int yAxe = YLoc + j;
 
                     if (IsOutside(xAxe, yAxe))
                         continue;
@@ -179,6 +177,7 @@ namespace Minesweeper.Core
                 if (cell.CellType == CellType.Mine || cell.CellType == CellType.FlaggedMine)
                 {
                     cell.Image = System.Drawing.Image.FromFile("c:\\miniMine.jpg");
+                    cell.Text = "";
                 }
             }
         }
