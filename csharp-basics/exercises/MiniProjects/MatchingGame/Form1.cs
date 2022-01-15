@@ -22,6 +22,8 @@ namespace MatchingGame
         // that the player clicks
         Label secondClicked = null;
 
+        private int _i;
+
         public Form1()
         {
             InitializeComponent();
@@ -60,7 +62,7 @@ namespace MatchingGame
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
             timer2.Start();
 
@@ -117,7 +119,7 @@ namespace MatchingGame
             SystemSounds.Hand.Play();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             // Stop the timer
             timer1.Stop();
@@ -150,16 +152,15 @@ namespace MatchingGame
             // If the loop didn’t return, it didn't find
             // any unmatched icons
             // That means the user won. Show a message and close the form
-            MessageBox.Show(@"You matched all the icons! Your time is " + i + @" seconds", "Congratulations");
+            MessageBox.Show("You matched all the icons! Your time is " + 
+                            _i + " seconds", "Congratulations");
             Close();
         }
 
-        private int i;
-
-        private void timer2_Tick(object sender, EventArgs e)
+        private void Timer2_Tick(object sender, EventArgs e)
         {
-            i++;
-            label17.Text = i + " seconds";
+            _i++;
+            label17.Text = _i + " seconds";
         }
 
         private void timer3_Tick(object sender, EventArgs e)
