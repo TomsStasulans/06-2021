@@ -37,7 +37,7 @@ namespace Minesweeper.Tests
         public void GetBombs_ShouldReturn10Bombs()
         {
             //Arrange
-            var expected = 10;
+            var expected = _target.NumMines;
             //Act
             var result = _target.GetBombs(10).Count;
             //Assert

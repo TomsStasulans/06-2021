@@ -51,7 +51,6 @@ namespace Minesweeper.Tests
             int x = _target.XLoc = -1;
             int y = _target.YLoc = 0;
             //Act
-
             var result = _target.IsOutside(x, y);
             //Assert
             Assert.IsTrue(result);

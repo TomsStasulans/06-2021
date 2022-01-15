@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Minesweeper.Core
 {
@@ -23,7 +25,7 @@ namespace Minesweeper.Core
         public CellType CellType { get; set; }
         public int NumMines { get; set; }
         public Board Board { get; set; }
-        public int mines { get; set; }
+        private int _mines { get; set; }
 
         public void SetupDesign()
         {
@@ -36,29 +38,13 @@ namespace Minesweeper.Core
 
         public void OnFlag()
         {
-            if (CellType == CellType.Mine)
-            {
-                CellType = CellType.FlaggedMine;
-            }
-            else
-            {
-                CellType = CellType.Flagged;
-            }
-
+            CellType = CellType == CellType.Mine ? CellType.FlaggedMine : CellType.Flagged;
             Text = "?";
         }
 
         public void OffFlag()
         {
-            if (CellType == CellType.FlaggedMine)
-            {
-                CellType = CellType.Mine;
-            }
-            else
-            {
-                CellType = CellType.Regular;
-            }
-
+            CellType = CellType == CellType.FlaggedMine ? CellType.Mine : CellType.Regular;
             Text = "";
         }
 
@@ -80,7 +66,7 @@ namespace Minesweeper.Core
             if (CellType == CellType.Mine)
             {
                 RevealMines();
-                LooserMessage();
+                FirstMessage("Sorry you lost", "Ups");
             }
             else
             {
@@ -96,13 +82,13 @@ namespace Minesweeper.Core
             if (OpenedCells() == CellsWithNoMines())
             {
                 RevealMines();
-                WinnerMessage();
+                FirstMessage("You Won!", "Nice!");
             }
         }
 
         private Color GetCellColor()
         {
-            switch (this.mines)
+            switch (this._mines)
             {
                 case 1:
                     return ColorTranslator.FromHtml("0x0000FE"); // 1
@@ -127,8 +113,6 @@ namespace Minesweeper.Core
 
         private int MinesAroundCell()
         {
-            mines = 0;
-
             for (int i = -1; i <= 1; i++)
             {
                 for (int j = -1; j <= 1; j++)
@@ -140,24 +124,21 @@ namespace Minesweeper.Core
                         continue;
 
                     if (IsMine(xAxe, yAxe))
-                        mines++;
+                        _mines++;
                 }
             }
 
-            return mines;
+            return _mines;
         }
 
         private void OpenCellsAround()
         {
-            int x = XLoc;
-            int y = YLoc;
-
             for (int i = -1; i <= 1; i++)
             {
                 for (int j = -1; j <= 1; j++)
                 {
-                    int xAxe = x + i;
-                    int yAxe = y + j;
+                    int xAxe = XLoc + i;
+                    int yAxe = YLoc + j;
 
                     if (IsOutside(xAxe, yAxe)
                         || Board.Cells[xAxe, yAxe].CellState == CellState.Opened
@@ -174,11 +155,9 @@ namespace Minesweeper.Core
         {
             foreach (var cell in Board.Cells)
             {
-                if (cell.CellType == CellType.Mine || cell.CellType == CellType.FlaggedMine)
-                {
-                    cell.Image = System.Drawing.Image.FromFile("c:\\miniMine.jpg");
-                    cell.Text = "";
-                }
+                if (cell.CellType != CellType.Mine && cell.CellType != CellType.FlaggedMine) continue;
+                cell.Image = System.Drawing.Image.FromFile("c:\\miniMine.jpg");
+                cell.Text = "";
             }
         }
 
@@ -189,7 +168,8 @@ namespace Minesweeper.Core
 
         private bool IsMine(int xAxe, int yAxe)
         {
-            return Board.Cells[xAxe, yAxe].CellType == CellType.Mine || Board.Cells[xAxe, yAxe].CellType == CellType.FlaggedMine;
+            return Board.Cells[xAxe, yAxe].CellType == CellType.Mine
+                   || Board.Cells[xAxe, yAxe].CellType == CellType.FlaggedMine;
         }
 
         private Cell GetRandomRegularCell()
@@ -198,47 +178,29 @@ namespace Minesweeper.Core
             var x = randomCoordinate.Next(0, 9);
             var y = randomCoordinate.Next(0, 9);
 
-            if (Board.Cells[x, y].CellType == CellType.Regular)
-            {
-                return Board.Cells[x, y];
-            }
-
-            return GetRandomRegularCell();
+            return Board.Cells[x, y].CellType == CellType.Regular ? Board.Cells[x, y] : GetRandomRegularCell();
         }
 
-        private void LooserMessage()
+        private static void FirstMessage(string text, string caption)
         {
-            MessageBox.Show("You Loose!", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            MessageDialoge();
+            MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            SecondMessage();
         }
 
-        private void WinnerMessage()
-        {
-            MessageBox.Show("You Win!", "Nice!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            MessageDialoge();
-        }
-
-        private void MessageDialoge()
+        private static void SecondMessage()
         {
             DialogResult dialogResult = MessageBox.Show(@"Restart?", @"Your options", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Application.Restart();
             }
+
+            Application.Exit();
         }
 
         private int OpenedCells()
         {
-            var openedCells = 0;
-            foreach (var cell in Board.Cells)
-            {
-                if (cell.CellState == CellState.Opened)
-                {
-                    openedCells++;
-                }
-            }
-
-            return openedCells;
+            return Board.Cells.Cast<Cell>().Count(cell => cell.CellState == CellState.Opened);
         }
 
         private int CellsWithNoMines()
