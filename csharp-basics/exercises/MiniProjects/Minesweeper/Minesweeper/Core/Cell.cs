@@ -71,6 +71,7 @@ namespace Minesweeper.Core
             else
             {
                 Text = MinesAroundCell().ToString();
+
                 ForeColor = GetCellColor();
 
                 if (MinesAroundCell() == 0)
