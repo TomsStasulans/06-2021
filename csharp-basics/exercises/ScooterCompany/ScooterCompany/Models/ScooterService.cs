@@ -4,42 +4,58 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ScooterCompany.Exception;
 using ScooterCompany.Interfaces;
 
 namespace ScooterCompany.Models
 {
-    internal class ScooterService : IScooterService
+    public class ScooterService : IScooterService
     {
-        private IList<Scooter> scooterList = new List<Scooter>();
+        private IList<Scooter> _scooterList = new List<Scooter>();
         public void AddScooter(string id, decimal pricePerMinute)
         {
-            scooterList.Add(new Scooter(id, pricePerMinute));
+            if (pricePerMinute <= 0)
+            {
+                throw new InvalidPriceException();
+            }
+
+            if (string.IsNullOrEmpty(id))
+            {
+                throw new ArgumentException("Invalid id provided");
+            }
+
+            if (_scooterList.Any(s => s.Id == id))
+            {
+                throw new ScooterDuplicateException();
+            }
+
+            _scooterList.Add(new Scooter(id, pricePerMinute));
         }
 
         public void RemoveScooter(string id)
         {
-            var scooterToRemove = scooterList.Single(scooter => scooter.Id == id);
-            if (scooterToRemove.IsRented)
+            if (_scooterList.All(s => s.Id != id))
             {
-                throw new MissingMemberException("Scooter not available");
-                
+                throw new ScooterNotFoundException();
             }
-            else
-            {
-                scooterList.Remove(scooterToRemove);
-            }
+
+            _scooterList.Remove(_scooterList.First(s => s.Id == id));
         }
 
         public IList<Scooter> GetScooters()
         {
-            return (IList<Scooter>)scooterList.Where(scooter => !scooter.IsRented);
+            return _scooterList.ToList();
         }
 
         public Scooter GetScooterById(string scooterId)
         {
-            return scooterList.Single(scooter => scooter.Id == scooterId);
+            var scooter = _scooterList.FirstOrDefault(s => s.Id == scooterId);
+            if (scooter == null)
+            {
+                throw new ScooterNotFoundException();
+            }
+
+            return scooter;
         }
     }
 }
-//List is a class that represents a list of objects which can be accessed by index
-//IList is an interface that represents a collection of objects which can be accessed by index
